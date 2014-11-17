@@ -7,3 +7,11 @@ $ ->
     e.preventDefault
     $('#confirmation').show()
     $('#formSubmission').hide()
+
+
+App = angular.module("freeItems", [])
+
+App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
+  $scope.itemCount = 0
+
+  ])
