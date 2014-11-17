@@ -6,27 +6,25 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
       <th>Location</th>
+      <th>Description</th>
       <th>Expiry date</th>
-      <th>Lister email</th>
-      <th>Lister tel</th>
-      <th>Sms notify</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
-
+  <tbody ng-controller="ListController">
+    <tr ng-repeat="item in items">
+      <td>{{ item.title }} </td>
+      <td>{{ item.location }}</td>
+      <td>{{ item.description }}</td>
+      <td>{{ item.expiry_date }}</td>
+    </tr>
   </tbody>
 </table>
 
-<div ng-app="freeItems">
-  <div ng-controller="ListController">
-    <ul ng-repeat="item in items">
-      <li>{{ item.title }}</li>
-  </div>
-</div>
+
+
 
 <br>
 
