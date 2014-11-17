@@ -29,10 +29,11 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to (:back), notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
+        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.js   {}
+        format.json { render json: @item, status: :created, location: @item }
       else
-        format.html { render :new }
+        format.html { render action: "new" }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end

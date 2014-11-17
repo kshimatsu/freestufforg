@@ -3,10 +3,18 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+
+  $('#resetModal').click (e) ->
+    e.preventDefault
+    $('#confirmation').hide()
+    $('#formSubmission').show()
+    $('#listing_form').reset();
+
   $('#submitListing').click (e) ->
     e.preventDefault
     $('#confirmation').show()
     $('#formSubmission').hide()
+
 
 
 App = angular.module("freeItems", [])
