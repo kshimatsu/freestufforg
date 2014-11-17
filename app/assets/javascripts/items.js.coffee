@@ -14,4 +14,10 @@ App = angular.module("freeItems", [])
 App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
   $scope.itemCount = 0
 
+  $http.get('/items.json')
+    .success (data) ->
+      $scope.items = data
+    .error (data) ->
+      console.log "oh noes" + data
   ])
+

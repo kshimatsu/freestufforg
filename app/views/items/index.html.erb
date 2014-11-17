@@ -23,8 +23,9 @@
 
 <div ng-app="freeItems">
   <div ng-controller="ListController">
-    <p>{{ itemCount }}</p>
-
+    <ul ng-repeat="item in items">
+      <li>{{ item.title }}</li>
+  </div>
 </div>
 
 <br>
