@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
         format.js   {}
         format.json { render json: @item, status: :created, location: @item }
       else
-        format.html { render action: "new" }
+        format.html { render action: :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
