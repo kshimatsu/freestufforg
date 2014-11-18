@@ -1,3 +1,15 @@
+<!-- PHOTO DROP ZONE -->
+<div class="photo-upload-container">
+  <form action="/media" id="media-dropzone" class="dropzone" enctype="multipart/form-data">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+    <div class="fallback">
+      <input name="file" type="file" multiple />
+    </div>
+  </form>
+</div>
+
+<!-- FINISH PHOTO DROP ZONE -->
+
 <%= form_for(@item) do |f| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
@@ -43,3 +55,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+
