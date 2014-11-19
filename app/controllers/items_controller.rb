@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  locations = ['Wan Chai', 'Central', 'Causeway Bay', 'Tsim Sha Tsui', 'Stanley', 'Stanley']
 
   # GET /items
   # GET /items.json
