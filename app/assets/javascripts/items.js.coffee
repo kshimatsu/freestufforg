@@ -30,6 +30,14 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
   ])
 
 App.controller("FormController", ["$scope", "$http", ($scope, $http) ->
-
+  $scope.save = ->
+    console.log "you submitted some stuff bro"
+    console.log $scope.data
+    jsonObj = $scope.data
+    $http.post('/items.json', jsonObj)
+      .success (data) ->
+        console.log "you managed to create a new item"
+      .error (data) ->
+        console.log "you didn't manage to create an item"
   ])
 
