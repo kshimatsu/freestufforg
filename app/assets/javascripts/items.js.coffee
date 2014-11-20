@@ -29,3 +29,7 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
       console.log "oh noes" + data
   ])
 
+App.controller("FormController", ["$scope", "$http", ($scope, $http) ->
+
+  ])
+
