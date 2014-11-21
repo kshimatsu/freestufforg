@@ -13,6 +13,19 @@
   </form>
 </div>
 
+<div>
+  <select id="locationDropDown" ng-model="location">
+    <option value=""></option>
+    <option value="Wan Chai">Wan Chai</option>
+    <option value="Central">Central</option>
+    <option value="Causeway Bay">Causeway Bay</option>
+    <option value="Stanley">Stanley</option>
+    <option value="TST">Tsim Sha Tsui</option>
+    <option value="Mong Kok">Mong Kok</option>
+  </select>
+
+  {{ location }}
+
 <table>
   <thead>
     <tr>
@@ -25,7 +38,7 @@
     </tr>
   </thead>
   <tbody id="items">
-    <tr ng-repeat="item in itemList">
+    <tr ng-repeat="item in itemList | filter:location">
       <td>{{ item.title }} </td>
       <td>{{ item.location }}</td>
       <td>{{ item.description }}</td>
