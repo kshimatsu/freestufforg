@@ -21,6 +21,14 @@ App = angular.module("freeItems", [])
 
 App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
 
+  $scope.selectedItemId = 0
+
+  $scope.showDropzone = (itemId) ->
+    $scope.selectedItemId = itemId
+
+  $scope.dismissDropzone = ->
+    $scope.selectedItemId = 0
+
   $scope.itemList = []
 
   $http.get('/items.json')
