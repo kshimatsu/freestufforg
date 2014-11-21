@@ -15,3 +15,15 @@
 //= require angular
 //= require dropzone
 //= require_tree .
+
+$(function() {
+  Dropzone.autoDiscover = false;
+
+  var mediaDropzone;
+  mediaDropzone = new Dropzone("#media-dropzone");
+  return mediaDropzone.on("success", function(file, responseText) {
+    var imageUrl;
+    imageUrl = responseText.file_name.url;
+    console.log(imageUrl);
+  });
+});

@@ -26,6 +26,8 @@ gem 'angularjs-rails'
 
 gem 'dropzonejs-rails'
 
+gem 'carrierwave'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
