@@ -20,24 +20,25 @@ $ ->
 App = angular.module("freeItems", [])
 
 App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
-  $scope.itemCount = 0
+
+  $scope.itemList = []
 
   $http.get('/items.json')
     .success (data) ->
-      $scope.items = data
+      for x in data
+        $scope.itemList.push(x)
     .error (data) ->
       console.log "oh noes" + data
-  ])
 
-App.controller("FormController", ["$scope", "$http", ($scope, $http) ->
   $scope.save = ->
     console.log "you submitted some stuff bro"
-    console.log $scope.data
-    jsonObj = $scope.data
+    console.log $scope.form
+    jsonObj = $scope.form
     $http.post('/items.json', jsonObj)
       .success (data) ->
         console.log "you managed to create a new item"
+        $scope.itemList.push(jsonObj)
       .error (data) ->
         console.log "you didn't manage to create an item"
-  ])
 
+  ])

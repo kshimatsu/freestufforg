@@ -1,20 +1,20 @@
-<div ng-controller="FormController">
+<div>
   <form ng-submit="save()">
     <p>Title</p>
-    <input type="text" ng-model="data.title" />
+    <input type="text" ng-model="form.title" />
     <p>Description</p>
-    <input type="textarea" ng-model="data.description" />
+    <input type="textarea" ng-model="form.description" />
     <p>Location</p>
-    <input type="text" ng-model="data.location" />
+    <input type="text" ng-model="form.location" />
     <p>Expiry Date</p>
-    <input type="date" ng-model="data.expiry_date" />
+    <input type="date" ng-model="form.expiry_date" />
     <p>Email</p>
-    <input type="email" ng-model="data.lister_email" />
+    <input type="email" ng-model="form.lister_email" />
     <p>Telephone</p>
-    <input type="tel" ng-model="data.tel" />
+    <input type="tel" ng-model="form.tel" />
     <p>Notify by SMS?</p>
-    <input type="checkbox" value="sms_notify" ng-model="data.sms_notify" />
-    <input type="submit" value="Submit" />
+    <input type="checkbox" value="sms_notify" ng-model="form.sms_notify" />
+    <input id="submitListing" type="submit" value="Submit" />
   </form>
 </div>
 
