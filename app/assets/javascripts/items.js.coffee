@@ -27,8 +27,7 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
       $scope.items = data
     .error (data) ->
       console.log "oh noes" + data
-  ]
-)
+
 
   $scope.selectedItemId = 0
 
