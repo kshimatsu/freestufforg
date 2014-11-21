@@ -28,15 +28,19 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
 
   $scope.dismissDropzone = ->
     $scope.selectedItemId = 0
+    $scope.loadItems()
 
   $scope.itemList = []
 
-  $http.get('/items.json')
-    .success (data) ->
-      for x in data
-        $scope.itemList.push(x)
-    .error (data) ->
-      console.log "oh noes" + data
+  $scope.loadItems = ->
+    $scope.itemList = []
+
+    $http.get('/items.json')
+      .success (data) ->
+        for x in data
+          $scope.itemList.push(x)
+      .error (data) ->
+        console.log "oh noes" + data
 
   $scope.save = ->
     console.log "you submitted some stuff bro"
@@ -49,4 +53,5 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
       .error (data) ->
         console.log "you didn't manage to create an item"
 
+  $scope.loadItems()
   ])

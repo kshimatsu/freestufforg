@@ -25,5 +25,7 @@ $(function() {
     var imageUrl;
     imageUrl = responseText.file_name.url;
     console.log(imageUrl);
+
+    $('#dismiss').click();
   });
 });
