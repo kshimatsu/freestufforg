@@ -1,10 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Items</h1>
+<div id="dismiss" class="btn btn-danger" ng-click="dismissDropzone()" ng-show="selectedItemId">Dismiss</div>
 
+<div class="file-upload" ng-show="selectedItemId">
+  <form action="/media_contents" id="media-dropzone" class="dropzone" enctype="multipart/form-data">
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+    <input name="item_id" type="hidden" value="{{ selectedItemId }}" />
+    <div class="fallback">
+      <input name="media" type="file" multiple />
+    </div>
+  </form>
+</div>
 
-
-<div ng-controller="ListController">
+<div>
   <select id="locationDropDown" ng-model="location">
     <option value=""></option>
     <option value="Wan Chai">Wan Chai</option>
@@ -17,29 +26,33 @@
 
   {{ location }}
 
-  <table>
-
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Expiry date</th>
-        <th>Location</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody id="items" ng-repeat="item in items | filter:location">
-      <tr>
-        <td>{{ item.title }}</td>
-        <td>{{ item.description }}</td>
-        <td>{{ item.expiry_date }}</td>
-        <td>{{ item.location }}</td>
-      </tr>
-    </tbody>
-
-  </table>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Location</th>
+      <th>Description</th>
+      <th>Expiry date</th>
+      <th>Image</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody id="items">
+    <tr ng-repeat="item in itemList | filter:location">
+      <td>{{ item.title }} </td>
+      <td>{{ item.location }}</td>
+      <td>{{ item.description }}</td>
+      <td>{{ item.expiry_date }}</td>
+      <td>
+        <div>Images</div>
+        <div ng-repeat="medium in item.media">
+          <img ng-src="{{ medium.file_name.url }}" />
+        </div>
+      </td>
+      <td><div class="btn btn-success" ng-click="showDropzone(item.id)">Upload</div></td>
+    </tr>
+  </tbody>
+</table>
 
 <button id="resetModal" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   List Item
