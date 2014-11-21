@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20141121070928) do
 
+  create_table "item_attachments", force: true do |t|
+    t.integer  "item_id"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -23,6 +30,7 @@ ActiveRecord::Schema.define(version: 20141121070928) do
     t.boolean  "sms_notify"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "image"
   end
 
   create_table "media", force: true do |t|
