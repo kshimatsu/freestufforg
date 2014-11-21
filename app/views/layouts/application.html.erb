@@ -3,18 +3,18 @@
 <head>
   <title>Freestufforg</title>
   <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css' %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= csrf_meta_tags %>
-</head>
+  </head>
   <body ng-app="freeItems">
 
-    <div class="container">
+    <div ng-controller="ListController" class="container">
 
       <%= yield %>
 
     </div>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
   <%= javascript_include_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js' %>
 </body>
 </html>

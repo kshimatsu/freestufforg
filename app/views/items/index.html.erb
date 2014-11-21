@@ -12,8 +12,13 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-  <tbody ng-controller="ListController" id="items">
-      <%= render @items %>
+  <tbody id="items">
+    <tr ng-repeat="item in itemList">
+      <td>{{ item.title }} </td>
+      <td>{{ item.location }}</td>
+      <td>{{ item.description }}</td>
+      <td>{{ item.expiry_date }}</td>
+    </tr>
   </tbody>
 </table>
 
