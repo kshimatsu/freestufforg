@@ -26,6 +26,12 @@
 
   {{ location }}
 
+<p>
+  <button id="resetModal" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  List Item
+</button>
+</p>
+
 <table>
   <thead>
     <tr>
@@ -46,17 +52,13 @@
       <td>
         <div>Images</div>
         <div ng-repeat="medium in item.media">
-          <img ng-src="{{ medium.file_name.url }}" />
+          <img class="list-image" ng-src="{{ medium.file_name.url }}" />
         </div>
       </td>
       <td><div class="btn btn-success" ng-click="showDropzone(item.id)">Upload</div></td>
     </tr>
   </tbody>
 </table>
-
-<button id="resetModal" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  List Item
-</button>
 
 <%= render 'create_item_modal' %>
 
