@@ -19,9 +19,7 @@
             <input type="checkbox" value="sms_notify" ng-model="message.sms_notify" />
             <p>Weekly Newsletter</p>
             <input type="checkbox" value="weekly_newsletter" ng-model="message.weekly_newsletter" />
-            <input name="item_id" type="hidden" ng-value="contactId" ng-model="message.item_id"/>
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-
             <input id="submitListing" type="submit" value="Submit" />
           </form>
         </div>
