@@ -7,15 +7,14 @@ $ ->
   $('#resetModal').click (e) ->
     e.preventDefault
     $('#confirmation').hide()
+    $('#image_upload').hide()
     $('#formSubmission').show()
     $('#listing_form').closest('form').find("input[type=text], textarea").val("");
 
   $('#submitListing').click (e) ->
     e.preventDefault
-    $('#confirmation').show()
+    $('#image_upload').show()
     $('#formSubmission').hide()
-
-
 
 App = angular.module("freeItems", [])
 
@@ -31,14 +30,23 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
 
   $scope.selectedItemId = 0
 
-  $scope.showDropzone = (itemId) ->
-    $scope.selectedItemId = itemId
+  $scope.newItemId = 0
 
-  $scope.dismissDropzone = ->
-    $scope.selectedItemId = 0
-    $scope.loadItems()
+  $scope.getNewItemId = ->
+    $http.get('/items/latest.json')
+      .success (data) ->
+        $scope.newItemId = data.id + 1
+        console.log $scope.newItemId
+      .error (data) ->
+        console.log "whoops, that didn't work..."
+
+  $scope.getNewItemId()
 
   $scope.itemList = []
+
+  $scope.uploadComplete = ->
+    $scope.getNewItemId()
+    $scope.loadItems()
 
   $scope.loadItems = ->
     $scope.itemList = []
