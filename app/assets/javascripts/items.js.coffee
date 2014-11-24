@@ -73,7 +73,12 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
   $scope.contactId = ""
 
   $scope.contactLister = ->
-    console.log "contacting lister"
+    message = $scope.message
+    $http.post('/messages.json', message)
+      .success (data) ->
+        console.log "you managed to create a message"
+      .error (data) ->
+        console.log "you didn't manage to create a message"
 
 
   $scope.loadItems()

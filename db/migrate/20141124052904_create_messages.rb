@@ -3,7 +3,7 @@ class CreateMessages < ActiveRecord::Migration
     create_table :messages do |t|
       t.string :email
       t.string :tel
-      t.text :message
+      t.text :message_description
       t.boolean :sms_notify
       t.boolean :weekly_newsletter
 

@@ -14,11 +14,14 @@
             <p>Your telephone number</p>
             <input type="tel" ng-model="message.tel" />
             <p>Your message</p>
-            <input type="textarea" ng-model="message.description">
+            <input type="textarea" ng-model="message.message_description">
             <p>Notify by SMS?</p>
             <input type="checkbox" value="sms_notify" ng-model="message.sms_notify" />
             <p>Weekly Newsletter</p>
             <input type="checkbox" value="weekly_newsletter" ng-model="message.weekly_newsletter" />
+            <input name="item_id" type="hidden" ng-value="contactId" ng-model="message.item_id"/>
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+
             <input id="submitListing" type="submit" value="Submit" />
           </form>
         </div>
