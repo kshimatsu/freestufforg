@@ -16,8 +16,6 @@ $ ->
     $('#image_upload').show()
     $('#formSubmission').hide()
 
-
-
 App = angular.module("freeItems", [])
 
 App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
@@ -42,14 +40,13 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
       .error (data) ->
         console.log "whoops, that didn't work..."
 
-  $scope.showDropzone = (itemId) ->
-    $scope.selectedItemId = itemId
-
-  $scope.dismissDropzone = ->
-    $scope.selectedItemId = 0
-    $scope.loadItems()
+  $scope.getNewItemId()
 
   $scope.itemList = []
+
+  $scope.uploadComplete = ->
+    $scope.getNewItemId()
+    $scope.loadItems()
 
   $scope.loadItems = ->
     $scope.itemList = []
@@ -72,7 +69,6 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
         $http.get('/items/latest.json')
           .success (data) ->
             $scope.itemList.push(data)
-            $scope.getNewItemId()
           .error (data) ->
             console.log "whoops, that didn't work..."
       .error (data) ->
