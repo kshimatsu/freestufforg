@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   def create
-    # binding.pry
+    binding.pry
     @message = Message.new(message_params)
     @message.item_id = params[:item_id]
     if @message.save!
