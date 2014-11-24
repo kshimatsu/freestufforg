@@ -11,6 +11,17 @@
           <%= render 'angularform' %>
 
         </div>
+        <div id="image_upload">
+          <div class="file-upload">
+            <form action="/media_contents" id="media-dropzone" class="dropzone" enctype="multipart/form-data">
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+              <input name="item_id" type="hidden" value="{{ selectedItemId }}" />
+              <div class="fallback">
+                <input name="media" type="file" multiple />
+             </div>
+            </form>
+          </div>
+        </div>
         <div id="confirmation">
           <h3>Thanks!</h3>
           <p>Your item has been posted. Please click away from this box to close this window.</p>
