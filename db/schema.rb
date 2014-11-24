@@ -11,14 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121070928) do
-
-  create_table "item_attachments", force: true do |t|
-    t.integer  "item_id"
-    t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20141124053125) do
 
   create_table "items", force: true do |t|
     t.string   "title"
@@ -30,13 +23,23 @@ ActiveRecord::Schema.define(version: 20141121070928) do
     t.boolean  "sms_notify"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.string   "image"
   end
 
   create_table "media", force: true do |t|
     t.string   "file_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "item_id"
+  end
+
+  create_table "messages", force: true do |t|
+    t.string   "email"
+    t.string   "tel"
+    t.text     "message_description"
+    t.boolean  "sms_notify"
+    t.boolean  "weekly_newsletter"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "item_id"
   end
 

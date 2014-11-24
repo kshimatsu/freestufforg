@@ -34,7 +34,6 @@
   <div class="row">
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="item in itemList | filter:location">
       <div class="panel panel-default">
-
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $index }}" aria-expanded="true" aria-controls="collapse{{ $index }}">
               {{ item.title }} - {{ item.location }}
@@ -61,6 +60,7 @@
               </div>
               <div class="col-md-1">
                 <div class="btn btn-success" id="upload-button" ng-click="showDropzone(item.id)">Upload</div>
+                <div class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</div>
               </div>
             </div>
           </div>
@@ -69,8 +69,8 @@
     </div>
   </div>
 
-
 <%= render 'create_item_modal' %>
+<%= render 'contact_seller_modal' %>
 
 </div>
 
