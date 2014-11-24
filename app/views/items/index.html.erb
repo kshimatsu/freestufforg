@@ -40,7 +40,8 @@
       <th>Description</th>
       <th>Expiry date</th>
       <th>Image</th>
-      <th>Action</th>
+      <th>Action 1</th>
+      <th>Contact Seller</th>
     </tr>
   </thead>
   <tbody id="items">
@@ -55,12 +56,14 @@
           <img class="list-image" ng-src="{{ medium.file_name.url }}" />
         </div>
       </td>
-      <td><div class="btn btn-success" ng-click="showDropzone(item.id)">Upload</div></td>
+      <td><div class="btn btn-default" ng-click="showDropzone(item.id)">Upload Image</div></td>
+      <td><div class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</div></td>
     </tr>
   </tbody>
 </table>
 
 <%= render 'create_item_modal' %>
+<%= render 'contact_seller_modal' %>
 
 </div>
 
