@@ -31,34 +31,40 @@
   List Item
 </button>
 </p>
+  <div class="row">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="item in itemList | filter:location">
+      <div class="panel panel-default">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Location</th>
-      <th>Description</th>
-      <th>Expiry date</th>
-      <th>Image</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody id="items">
-    <tr ng-repeat="item in itemList | filter:location">
-      <td>{{ item.title }} </td>
-      <td>{{ item.location }}</td>
-      <td>{{ item.description }}</td>
-      <td>{{ item.expiry_date }}</td>
-      <td>
-        <div>Images</div>
-        <div ng-repeat="medium in item.media">
-          <img class="list-image" ng-src="{{ medium.file_name.url }}" />
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $index }}" aria-expanded="true" aria-controls="collapse{{ $index }}">
+              {{ item.title }} - {{ item.location }}
+            </a>
+            <span class="expiry-date">{{ item.expiry_date }}</span>
+          </h4>
+
+        <div id="collapse{{ $index }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ $index }}">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="images">Images
+                  <div ng-repeat="medium in item.media">
+                    <img class="list-image" ng-src="{{ medium.file_name.url }}" />
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="description">
+                  {{ item.description }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn btn-success" ng-click="showDropzone(item.id)">Upload</div>
         </div>
-      </td>
-      <td><div class="btn btn-success" ng-click="showDropzone(item.id)">Upload</div></td>
-    </tr>
-  </tbody>
-</table>
+      </div>
+    </div>
+  </div>
+
 
 <%= render 'create_item_modal' %>
 
