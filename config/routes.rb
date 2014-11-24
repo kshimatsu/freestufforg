@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :items
+  resources :items do
+    collection do
+      get 'latest'
+    end
+  end
+
   resources :media_contents, only: [:create]
   resources :messages, only: [:create]
 

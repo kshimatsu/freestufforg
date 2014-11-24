@@ -57,7 +57,12 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
     $http.post('/items.json', jsonObj)
       .success (data) ->
         console.log "you managed to create a new item"
-        $scope.itemList.push(jsonObj)
+        # $scope.itemList.push(jsonObj)
+        $http.get('/items/latest.json')
+          .success (data) ->
+            $scope.itemList.push(data)
+          .error (data) ->
+            console.log "whoops, that didn't work..."
       .error (data) ->
         console.log "you didn't manage to create an item"
 
