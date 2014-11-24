@@ -1,8 +1,6 @@
 class MessagesController < ApplicationController
   def create
-    binding.pry
     @message = Message.new(message_params)
-    @message.item_id = params[:item_id]
     if @message.save!
       respond_to do |format|
         format.json { render :json => @message, status: :created, location: @item}
