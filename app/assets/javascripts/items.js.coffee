@@ -61,5 +61,25 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
       .error (data) ->
         console.log "you didn't manage to create an item"
 
+  $scope.getContact = (item) ->
+    $scope.contactAddress = item.lister_email
+    $scope.contactItem = item.title
+    $scope.contactLocation = item.location
+    $scope.contactId = item.id
+
+  $scope.contactAddress = ""
+  $scope.contactItem = ""
+  $scope.contactLocation = ""
+  $scope.contactId = ""
+
+  $scope.contactLister = ->
+    message = $scope.message
+    $http.post('/messages.json', message)
+      .success (data) ->
+        console.log "you managed to create a message"
+      .error (data) ->
+        console.log "you didn't manage to create a message"
+
+
   $scope.loadItems()
   ])
