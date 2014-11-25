@@ -1,51 +1,64 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Items</h1>
-<div id="dismiss" class="btn btn-danger" ng-click="dismissDropzone()" ng-show="selectedItemId">Dismiss</div>
 
-<div class="file-upload" ng-show="selectedItemId">
-  <form action="/media_contents" id="media-dropzone" class="dropzone" enctype="multipart/form-data">
-    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-    <input name="item_id" type="hidden" value="{{ selectedItemId }}" />
-    <div class="fallback">
-      <input name="media" type="file" multiple />
-    </div>
-  </form>
-</div>
+<div>
+  <select id="locationDropDown" ng-model="location">
+    <option value=""></option>
+    <option value="Wan Chai">Wan Chai</option>
+    <option value="Central">Central</option>
+    <option value="Causeway Bay">Causeway Bay</option>
+    <option value="Stanley">Stanley</option>
+    <option value="TST">Tsim Sha Tsui</option>
+    <option value="Mong Kok">Mong Kok</option>
+  </select>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Location</th>
-      <th>Description</th>
-      <th>Expiry date</th>
-      <th>Image</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody id="items">
-    <tr ng-repeat="item in itemList">
-      <td>{{ item.title }} </td>
-      <td>{{ item.location }}</td>
-      <td>{{ item.description }}</td>
-      <td>{{ item.expiry_date }}</td>
-      <td>
-        <div>Images</div>
-        <div ng-repeat="medium in item.media">
-          <img ng-src="{{ medium.file_name.url }}" />
-        </div>
-      </td>
-      <td><div class="btn btn-success" ng-click="showDropzone(item.id)">Upload</div></td>
-    </tr>
-  </tbody>
-</table>
+  {{ location }}
 
-<button id="resetModal" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+<p>
+  <button id="resetModal" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   List Item
 </button>
+</p>
+  <div class="row">
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="item in itemList | filter:location">
+      <div class="panel panel-default">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $index }}" aria-expanded="true" aria-controls="collapse{{ $index }}">
+              {{ item.title }} - {{ item.location }}
+            </a>
+            <span class="expiry-date">{{ item.expiry_date }}</span>
+          </h4>
+
+        <div id="collapse{{ $index }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ $index }}">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="row">
+                  <div ng-repeat="medium in item.media">
+                    <div class="col-md-5">
+                      <img class="list-image" ng-src="{{ medium.file_name.url }}" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="description">
+                  {{ item.description }}
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <%= render 'create_item_modal' %>
+<%= render 'contact_seller_modal' %>
 
 </div>
 

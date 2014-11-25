@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  locations = ['Wan Chai', 'Central', 'Causeway Bay', 'Tsim Sha Tsui', 'Stanley']
 
+  def latest
+    @latest_item = Item.last
+  end
   # GET /items
   # GET /items.json
   def index

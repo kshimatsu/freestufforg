@@ -21,7 +21,18 @@
   </div>
   <div class="field">
     <%= f.label :location %><br>
-    <%= f.text_field :location %>
+<!-- Need to put in location dropdown -->
+
+      <select id="locationDropDown">
+        <option value="  "></option>
+        <option value="WAN">Wan Chai</option>
+        <option value="  ">Central</option>
+        <option value="  ">Causeway Bay</option>
+        <option value="  ">Stanley</option>
+        <option value="  ">Tsim Sha Tsui</option>
+        <option value="  ">Mong Kok</option>
+      </select>
+
   </div>
   <div class="field">
     <%= f.label :expiry_date %><br>

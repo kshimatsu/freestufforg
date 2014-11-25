@@ -64,5 +64,7 @@ group :development, :test do
   # Rails console opens pry
   #> https://github.com/rweng/pry-rails
   gem 'pry-rails'
+
+  gem 'letter_opener'
 end
 

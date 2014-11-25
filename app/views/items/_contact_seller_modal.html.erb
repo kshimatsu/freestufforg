@@ -1,0 +1,30 @@
+<div class="modal fade" id="contactSeller" tabindex="-1" role="dialog" aria-labelledby="contactSellerLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h2 class="modal-title" id="contactSellerLabel">Message Lister</h2>
+        <h3>{{ contactItem }} - {{ contactLocation }}</h3>
+      </div>
+      <div class="modal-body">
+        <div>
+          <form ng-submit="contactLister()">
+            <p>Your email address</p>
+            <input type="email" ng-model="message.email" />
+            <p>Your telephone number</p>
+            <input type="tel" ng-model="message.tel" />
+            <p>Your message</p>
+            <input type="textarea" ng-model="message.message_description">
+            <p>Notify by SMS?</p>
+            <input type="checkbox" value="sms_notify" ng-model="message.sms_notify" />
+            <p>Weekly Newsletter</p>
+            <input type="checkbox" value="weekly_newsletter" ng-model="message.weekly_newsletter" />
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+            <input id="submitListing" type="submit" value="Submit" />
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

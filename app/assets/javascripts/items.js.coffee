@@ -7,30 +7,32 @@ $ ->
   $('#resetModal').click (e) ->
     e.preventDefault
     $('#confirmation').hide()
+    $('#image_upload').hide()
     $('#formSubmission').show()
     $('#listing_form').closest('form').find("input[type=text], textarea").val("");
 
   $('#submitListing').click (e) ->
     e.preventDefault
-    $('#confirmation').show()
+    $('#image_upload').show()
     $('#formSubmission').hide()
-
-
 
 App = angular.module("freeItems", [])
 
 App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
+  # $scope.itemCount = 0
 
-  $scope.selectedItemId = 0
+  $http.get('/items.json')
+    .success (data) ->
+      $scope.items = data
+    .error (data) ->
+      console.log "oh noes" + data
 
-  $scope.showDropzone = (itemId) ->
-    $scope.selectedItemId = itemId
-
-  $scope.dismissDropzone = ->
-    $scope.selectedItemId = 0
-    $scope.loadItems()
+  $scope.newItemId = 0
 
   $scope.itemList = []
+
+  $scope.uploadComplete = ->
+    $scope.loadItems()
 
   $scope.loadItems = ->
     $scope.itemList = []
@@ -49,9 +51,50 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
     $http.post('/items.json', jsonObj)
       .success (data) ->
         console.log "you managed to create a new item"
-        $scope.itemList.push(jsonObj)
+        $scope.newItemId = data.id
+        # $scope.itemList.push(jsonObj)
+        $http.get('/items/latest.json')
+          .success (data) ->
+            $scope.itemList.push(data)
+          .error (data) ->
+            console.log "whoops, that didn't work..."
+
+
       .error (data) ->
         console.log "you didn't manage to create an item"
 
+  $scope.getContact = (item) ->
+    $scope.contactAddress = item.lister_email
+    $scope.contactItem = item.title
+    $scope.contactLocation = item.location
+    $scope.contactId = item.id
+
+  $scope.contactAddress = ""
+  $scope.contactItem = ""
+  $scope.contactLocation = ""
+  $scope.contactId = ""
+
+  $scope.contactLister = ->
+    message = $scope.message
+    message.item_id = $scope.contactId
+    $http.post('/messages.json', message)
+      .success (data) ->
+        console.log "you managed to create a message"
+      .error (data) ->
+        console.log "you didn't manage to create a message"
+
+
   $scope.loadItems()
   ])
+
+App.controller("LocationController", ["$scope", ($scope) ->
+
+    $scope.locations = [
+      {name:'Wan Chai'},
+      {name:'Central'},
+      {name:'Causeway Bay'},
+      {name:'Tsim Sha Tsui'},
+      {name:'Stanley'}]
+  ])
+
+
