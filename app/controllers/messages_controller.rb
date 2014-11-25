@@ -1,7 +1,10 @@
 class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
+    # binding.pry
+    @item = Item.find(message_params[:item_id])
     if @message.save!
+      ItemMailer.contact_lister(@item, @message).deliver_now
       respond_to do |format|
         format.json { render :json => @message, status: :created, location: @item}
       end
