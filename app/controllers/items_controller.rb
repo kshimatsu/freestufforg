@@ -8,10 +8,10 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.order("expiry_date").where.not(expiry_date: nil)
-    @items.each do |item|
-      item.expiry_date = (item.expiry_date - Date.today).to_i
-    end
+    @items = Item.order("expiry_date").where.not(expiry_date: nil).where("expiry_date > ?", Date.today)
+    # @items.each do |item|
+    #   puts time_ago_in_words(item.expiry_date)
+    # end
   end
 
   # GET /items/1

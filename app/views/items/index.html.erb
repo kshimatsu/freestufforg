@@ -27,7 +27,7 @@
             <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $index }}" aria-expanded="true" aria-controls="collapse{{ $index }}">
               {{ item.title }} - {{ item.location }}
             </a>
-            <span class="expiry-date">{{ item.expiry_date }}</span>
+            <span class="expiry-date">{{ item.remaining_days }} </span>
           </h4>
 
         <div id="collapse{{ $index }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ $index }}">
