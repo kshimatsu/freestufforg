@@ -1,23 +1,48 @@
 <div>
-  <form ng-submit="save()">
-    <p>Title</p>
-    <input type="text" ng-model="form.title" />
-    <p>Description</p>
-    <input type="textarea" ng-model="form.description" />
-    <p>Location</p>
-    <input type="text" ng-model="form.location" />
-    <p>Expiry Date</p>
-    <input type="date" ng-model="form.expiry_date" />
-    <p>Email</p>
-    <input type="email" ng-model="form.lister_email" />
-    <p>Telephone</p>
-    <input type="tel" ng-model="form.tel" />
-    <p>Notify by SMS?</p>
-    <input type="checkbox" value="sms_notify" ng-model="form.sms_notify" />
-    <input id="submitListing" type="submit" value="Submit" />
+  <form name="ItemSubmittingForm" ng-submit="save()" novalidate>
+    <label>Title</label>
+    <input type="text" placeholder="Title" ng-minlength=3 ng-maxlength=20 ng-model="ItemSubmittingForm.title" required/><br/>
+
+    <label>Description</label>
+    <input type="textarea" placeholder="Description" ng-model="ItemSubmittingForm.description" required/><br/>
+
+    <label>Location</label>
+    <input type="text" placeholder="Location" ng-model="ItemSubmittingForm.location" required/><br/>
+
+    <label>Expiry Date</label>
+    <input type="date" placeholder="Expiry date" ng-model="ItemSubmittingForm.expiry_date" required/><br/>
+
+    <label>Email</label>
+    <input type="email" placeholder="Email address" ng-model="ItemSubmittingForm.lister_email" ng-minlength=3 ng-maxlength=20 required/>
+
+    <div class="error-container"
+         ng-show="ItemSubmittingForm.lister_email.$dirty && ItemSubmittingForm.lister_email.$invalid">
+      <small class="error"
+             ng-show="ItemSubmittingForm.lister_email.$error.required">
+             Your email is required.
+      </small>
+      <small class="error"
+             ng-show="ItemSubmittingForm.lister_email.$error.minlength">
+              Your email is required to be at least 3 characters
+      </small>
+      <small class="error"
+             ng-show="ItemSubmittingForm.lister_email.$error.email">
+             That is not a valid email. Please input a valid email.
+      </small>
+      <small class="error"
+             ng-show="ItemSubmittingForm.lister_email.$error.maxlength">
+              Your email cannot be longer than 20 characters
+      </small>
+    </div><br/>
+
+    <label>Telephone</label>
+    <input type="tel" placeholder="Telephone" ng-model="ItemSubmittingForm.tel" required/><br/>
+
+    <label>Notify by SMS?</label>
+    <input type="checkbox" value="sms_notify" ng-model="ItemSubmittingForm.sms_notify" /><br/>
+
+    <input id="submitListing" type="submit" value="Submit"/>
   </form>
 </div>
-
-
 
 
