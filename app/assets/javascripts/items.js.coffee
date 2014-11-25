@@ -27,25 +27,11 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
     .error (data) ->
       console.log "oh noes" + data
 
-
-  $scope.selectedItemId = 0
-
   $scope.newItemId = 0
-
-  $scope.getNewItemId = ->
-    $http.get('/items/latest.json')
-      .success (data) ->
-        $scope.newItemId = data.id + 1
-        console.log $scope.newItemId
-      .error (data) ->
-        console.log "whoops, that didn't work..."
-
-  $scope.getNewItemId()
 
   $scope.itemList = []
 
   $scope.uploadComplete = ->
-    $scope.getNewItemId()
     $scope.loadItems()
 
   $scope.loadItems = ->
@@ -65,12 +51,15 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
     $http.post('/items.json', jsonObj)
       .success (data) ->
         console.log "you managed to create a new item"
+        $scope.newItemId = data.id
         # $scope.itemList.push(jsonObj)
         $http.get('/items/latest.json')
           .success (data) ->
             $scope.itemList.push(data)
           .error (data) ->
             console.log "whoops, that didn't work..."
+
+
       .error (data) ->
         console.log "you didn't manage to create an item"
 
