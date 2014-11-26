@@ -8,34 +8,24 @@
   </head>
 
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Free Items for Free!</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Free Items for Free</a>
+        </div>
+        <span id="slogan">Pass on your goods!</span>
+          <select class="selectpicker" id="locationDropDown" ng-model="location">
+            <option value=""></option>
+            <option value="Wan Chai">Wan Chai</option>
+            <option value="Central">Central</option>
+            <option value="Causeway Bay">Causeway Bay</option>
+            <option value="Stanley">Stanley</option>
+            <option value="TST">Tsim Sha Tsui</option>
+            <option value="Mong Kok">Mong Kok</option>
+          </select>
+        <span>
         <button id="resetModal" type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal">List a Free Item!</button>
-
-      <select id="locationDropDown" ng-model="location">
-        <option value=""></option>
-        <option value="Wan Chai">Wan Chai</option>
-        <option value="Central">Central</option>
-        <option value="Causeway Bay">Causeway Bay</option>
-        <option value="Stanley">Stanley</option>
-        <option value="TST">Tsim Sha Tsui</option>
-        <option value="Mong Kok">Mong Kok</option>
-      </select>
+        </span>
       </div>
-    </div>
     </nav>
 
   <body ng-app="freeItems">

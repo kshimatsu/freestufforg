@@ -17,6 +17,28 @@
 
 #itemDescriptionContainer {
   position:fixed;
-  top: 10%;
+  top: 100px;
   right:0;
+  /*margin-right: 30px;*/
+  overflow-y:scroll;
+  overflow-x:hidden;
 }
+
+#locationDropDown {
+  margin: 5px 20px 5px 20px;
+}
+
+#mainContentContainer {
+  margin-top: 100px;
+}
+
+#slogan {
+  margin: 20% 0 20% 0;
+}
+
+#resetModal {
+  float: right;
+  margin-top: 9px;
+}
+
+

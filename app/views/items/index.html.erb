@@ -1,5 +1,5 @@
 
-<div class="row">
+<div class="row" id="mainContentContainer">
   <div class="col-md-12">
     <div class="row">
       <div class="col-md-6">
@@ -35,12 +35,19 @@
       </div>
 
       <!-- Second half of page -->
-      <div class="col-md-6" id="itemDescriptionContainer">
-        <h2>{{ currentItem.title }}</h2>
-        <p>Located in {{ currentItem.location }}
-        <p>{{ currentItem.description }}
-        <div class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</div>
+      <div class="col-sm-6" id="itemDescriptionContainer">
+        <div class="row">
+        <div class="col-sm-8"><h2>{{ currentItem.title }}</h2></div>
+        <div class="col-sm-4"> <span class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</span></div>
+        </div>
+        <div class="row">
+        <div class="col-sm-12">
+        <p><h3>Located in {{ currentItem.location }} and expires in {{currentItem.remaining_days}}</h3></p>
+        <p>{{ currentItem.description }}</p>
 
+
+        <img src="http://www.bitrepository.com/wp-content/uploads/2010/01/google-maps-jquery-plugin-multi-markers-example.jpg" id="mapImage">
+        </div>
       </div>
     </div>
   </div>
