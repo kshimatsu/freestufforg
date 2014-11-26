@@ -56,6 +56,7 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
         console.log "you managed to create a new item"
         $scope.newItemId = data.id
         # $scope.itemList.push(jsonObj)
+        $scope.form = {}
         $http.get('/items/latest.json')
           .success (data) ->
             console.log data
@@ -86,6 +87,8 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
       .error (data) ->
         console.log "you didn't manage to create a message"
 
+  $scope.updateCurrentItem = (item) ->
+    $scope.currentItem = item
 
   $scope.loadItems()
   ])
