@@ -1,24 +1,29 @@
-
 <form ng-submit="save()" id="listing_form">
-  <p>Title</p>
-  <input type="text" ng-model="form.title" />
-  <p>Description</p>
-  <input type="textarea" ng-model="form.description" />
 
-  <div ng-controller="LocationController">
-    <p>Location</p>
-    <select ng-model="form.location" name="locationChoice" ng-options="location.name for location in locations">
+  <label>Title</label>
+  <input type="text" ng-model="form.title" /></br></br>
+
+  <label>Description</label>
+  <input type="textarea" ng-model="form.description" /></br></br>
+
+  <div>
+    <label>Location</label>
+    <select ng-model="form.location" name="locationChoice" ng-options="location for location in locations">
       <option value="">-- choose location --</option>
     </select><br/>
-  </div>
+  </div></br>
 
-  <p>Expiry Date</p>
-  <input type="date" ng-model="form.expiry_date" />
-  <p>Email</p>
-  <input type="email" ng-model="form.lister_email" />
-  <p>Telephone</p>
-  <input type="tel" ng-model="form.tel" />
+  <label>Expiry Date</label>
+  <input type="date" ng-model="form.expiry_date" value = {{value | date: "yyyy-MM-dd"}}/></br></br>
+
+  <label>Email</label>
+  <input type="email" ng-model="form.lister_email" /></br></br>
+
+  <label>Telephone</label>
+  <input type="tel" ng-model="form.lister_tel" /></br></br>
+
   <p>Notify by SMS?</p>
   <input type="checkbox" value="sms_notify" ng-model="form.sms_notify" />
   <input id="submitListing" type="submit" value="Submit" />
+
 </form>

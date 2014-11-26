@@ -44,6 +44,8 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
       .error (data) ->
         console.log "oh noes" + data
 
+  $scope.locations = ['Wan Chai','Central','Causeway Bay','Tsim Sha Tsui','Stanley']
+
   $scope.save = ->
     console.log "you submitted some stuff bro"
     console.log $scope.form
@@ -85,16 +87,6 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
 
 
   $scope.loadItems()
-  ])
-
-App.controller("LocationController", ["$scope", ($scope) ->
-
-    $scope.locations = [
-      {name:'Wan Chai'},
-      {name:'Central'},
-      {name:'Causeway Bay'},
-      {name:'Tsim Sha Tsui'},
-      {name:'Stanley'}]
   ])
 
 
