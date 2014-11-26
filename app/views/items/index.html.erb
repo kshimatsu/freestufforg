@@ -1,24 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Items</h1>
+<h1>What's free today?</h1>
 
 <div>
-  <select id="locationDropDown" ng-model="location">
-    <option value=""></option>
-    <option value="Wan Chai">Wan Chai</option>
-    <option value="Central">Central</option>
-    <option value="Causeway Bay">Causeway Bay</option>
-    <option value="Stanley">Stanley</option>
-    <option value="TST">Tsim Sha Tsui</option>
-    <option value="Mong Kok">Mong Kok</option>
-  </select>
+
+        <div>
+              <select id="locationDropDown" ng-model="location">
+                <option value=""></option>
+                <option value="Wan Chai">Wan Chai</option>
+                <option value="Central">Central</option>
+                <option value="Causeway Bay">Causeway Bay</option>
+                <option value="Stanley">Stanley</option>
+                <option value="TST">Tsim Sha Tsui</option>
+                <option value="Mong Kok">Mong Kok</option>
+              </select>
+            </div>
 
   {{ location }}
 
 <p>
-  <button id="resetModal" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  List Item
-</button>
 </p>
   <div class="row">
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="item in itemList | filter:location">
