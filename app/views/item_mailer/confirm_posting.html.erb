@@ -1,0 +1,8 @@
+<p>
+  <%= @greeting %></br>
+  <%= @item.title %> is your giveaway. Are you sure?
+</p>
+
+<p>
+  <%= link_to "Accept", confirm_posting_item_url(@item) %>
+</p>

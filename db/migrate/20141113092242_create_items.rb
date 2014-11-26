@@ -8,6 +8,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :lister_email
       t.string :lister_tel
       t.boolean :sms_notify
+      t.boolean :confirm_posting
 
       t.timestamps null: false
     end

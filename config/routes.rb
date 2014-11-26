@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     collection do
       get 'latest'
     end
+    member do
+      get 'confirm_posting'
+    end
   end
 
   resources :media_contents, only: [:create]

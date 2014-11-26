@@ -50,6 +50,7 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
     console.log "you submitted some stuff bro"
     console.log $scope.form
     jsonObj = $scope.form
+    jsonObj.confirm_posting = false
     $http.post('/items.json', jsonObj)
       .success (data) ->
         console.log "you managed to create a new item"
@@ -57,7 +58,7 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
         # $scope.itemList.push(jsonObj)
         $http.get('/items/latest.json')
           .success (data) ->
-            $scope.itemList.push(data)
+            console.log data
           .error (data) ->
             console.log "whoops, that didn't work..."
 
