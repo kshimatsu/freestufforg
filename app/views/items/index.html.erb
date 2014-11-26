@@ -1,54 +1,29 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Items</h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div ng-repeat="item in itemList | filter:location">
+        <div ng-repeat="medium in item.media">
+          <div class="col-md-4">
+            <div class="thumbnail">
+              <img class="list-image" ng-src="{{ medium.file_name.url }}" />
+              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ item.id }}" aria-expanded="true" aria-controls="collapse{{ item.id }}">
+                        {{ item.title }}
+                      </a>
+                    </h4>
 
-<div>
-  <select id="locationDropDown" ng-model="location">
-    <option value=""></option>
-    <option value="Wan Chai">Wan Chai</option>
-    <option value="Central">Central</option>
-    <option value="Causeway Bay">Causeway Bay</option>
-    <option value="Stanley">Stanley</option>
-    <option value="TST">Tsim Sha Tsui</option>
-    <option value="Mong Kok">Mong Kok</option>
-  </select>
-
-  {{ location }}
-
-<p>
-  <button id="resetModal" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  List Item
-</button>
-</p>
-  <div class="row">
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="item in itemList | filter:location">
-      <div class="panel panel-default">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $index }}" aria-expanded="true" aria-controls="collapse{{ $index }}">
-              {{ item.title }} - {{ item.location }}
-            </a>
-            <span class="expiry-date">{{ item.remaining_days }} </span>
-          </h4>
-
-        <div id="collapse{{ $index }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ $index }}">
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-md-5">
-                <div class="row">
-                  <div ng-repeat="medium in item.media">
-                    <div class="col-md-5">
-                      <img class="list-image" ng-src="{{ medium.file_name.url }}" />
+                  </div>
+                  <div id="collapse{{ item.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ item.id }}">
+                    <div class="panel-body">
+                      {{ item.description }} - in {{ item.location }}
                     </div>
                   </div>
+                  <div id="remaining-time">In {{ item.location }} with {{ item.remaining_days }}</div>
                 </div>
-              </div>
-              <div class="col-md-6">
-                <div class="description">
-                  {{ item.description }}
-                </div>
-              </div>
-              <div class="col-md-1">
-                <div class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</div>
               </div>
             </div>
           </div>

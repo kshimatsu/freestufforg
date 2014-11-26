@@ -6,6 +6,29 @@
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= csrf_meta_tags %>
   </head>
+
+  <p id="notice"><%= notice %></p>
+
+    <h1>Listing Items</h1>
+
+    <div>
+      <select id="locationDropDown" ng-model="location">
+        <option value=""></option>
+        <option value="Wan Chai">Wan Chai</option>
+        <option value="Central">Central</option>
+        <option value="Causeway Bay">Causeway Bay</option>
+        <option value="Stanley">Stanley</option>
+        <option value="TST">Tsim Sha Tsui</option>
+        <option value="Mong Kok">Mong Kok</option>
+      </select>
+
+      {{ location }}
+
+    <p>
+      <button id="resetModal" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      List Item</button>
+    </p>
+
   <body ng-app="freeItems">
 
     <div ng-controller="ListController" class="container">
