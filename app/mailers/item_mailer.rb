@@ -17,6 +17,6 @@ class ItemMailer < ActionMailer::Base
     @greeting = "Thanks for posting free stuff!"
     @item = item
     @tokenlink = tokenlink
-    mail(to: @item.lister_email, subject: "[Freestuff.org] Confirmation for posting your free item \"#{ @item.title }\"", from: "message.email")
+    mail(to: @item.lister_email, subject: "[Freestuff.org] Confirmation for posting your free item \"#{ @item.title }\"", from: "testing@freestuff.org")
   end
 end
