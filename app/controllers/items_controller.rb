@@ -2,13 +2,21 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   locations = ['Wan Chai', 'Central', 'Causeway Bay', 'Tsim Sha Tsui', 'Stanley']
 
+
+  def confirm_posting
+    @item = Item.find(params[:id])
+    @item.confirm_posting = true
+    @item.save
+    redirect_to root_path
+  end
+
   def latest
     @latest_item = Item.last
   end
   # GET /items
   # GET /items.json
   def index
-    @items = Item.order("expiry_date").where.not(expiry_date: nil).where("expiry_date > ?", Date.today)
+    @items = Item.order("expiry_date").where.not(expiry_date: nil).where("expiry_date > ?", Date.today).where(confirm_posting: true)
     # @items.each do |item|
     #   puts time_ago_in_words(item.expiry_date)
     # end
@@ -80,4 +88,10 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:title, :description, :location, :expiry_date, :lister_email, :lister_tel, :sms_notify)
     end
+
+
+
 end
+
+
+

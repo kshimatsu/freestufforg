@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126060248) do
+ActiveRecord::Schema.define(version: 20141124053125) do
 
   create_table "items", force: true do |t|
     t.string   "title"
@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 20141126060248) do
     t.string   "lister_email"
     t.string   "lister_tel"
     t.boolean  "sms_notify"
+    t.boolean  "confirm_posting"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.boolean  "confirm_posting"
   end
 
   create_table "media", force: true do |t|
