@@ -16,6 +16,8 @@ $ ->
     $('#image_upload').show()
     $('#formSubmission').hide()
 
+
+
 App = angular.module("freeItems", [])
 
 App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
@@ -30,6 +32,9 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
   $scope.newItemId = 0
 
   $scope.itemList = []
+
+  $scope.updateCurrentItem = (item) ->
+    $scope.currentItem = item
 
   $scope.uploadComplete = ->
     $scope.loadItems()

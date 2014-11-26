@@ -15,4 +15,8 @@
  *= require dropzone/dropzone
  */
 
-
+#itemDescriptionContainer {
+  position:fixed;
+  top: 10%;
+  right:0;
+}
