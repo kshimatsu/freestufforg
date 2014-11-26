@@ -16,6 +16,10 @@ class MediaUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+
+  process :resize_to_fill => [500, 500]
+
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -32,9 +36,9 @@ class MediaUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb do
-    process :resize_to_fill => [500, 500]
-  end
+  # version :thumb do
+
+  # end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
