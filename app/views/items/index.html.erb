@@ -23,8 +23,9 @@
                           {{ item.description }} - in {{ item.location }}
                         </div>
                       </div> -->
-
-                      <span class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</span></div>
+                      <div id="get-this-item-btn">
+                      <button class="btn btn-default"  type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</span>
+                      </div>
 
                       <div id="remaining-time">In {{ item.location }} with {{ item.remaining_days }}</div>
                     </div>
@@ -34,24 +35,25 @@
             </div>
         </div>
       </div>
+      </div>
 
       <!-- Second half of page -->
       <div class="col-sm-6" id="itemDescriptionContainer">
-        <div class="row">
-        <div class="col-sm-8"><h2>{{ currentItem.title }}</h2></div>
-        <div class="col-sm-4"> <span class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</span></div>
-        </div>
-        <div class="row">
         <div class="col-sm-12">
-        <p><h3>Located in {{ currentItem.location }} and expires in {{currentItem.remaining_days}}</h3></p>
-        <p>{{ currentItem.description }}</p>
-
-
-        <img src="http://www.bitrepository.com/wp-content/uploads/2010/01/google-maps-jquery-plugin-multi-markers-example.jpg" id="mapImage">
+          <div class="row" id="inner-item-div">
+            <div class="col-sm-8"><h2>{{ currentItem.title }}</h2></div>
+            <div class="col-sm-4"> <span class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</span></div>
+            <div class="row">
+              <div class="col-sm-12">
+                <p><h3>Located in {{ currentItem.location }} and expires in {{currentItem.remaining_days}}</h3></p>
+                <p>{{ currentItem.description }}</p>
+              </div>
+              <img src="http://www.bitrepository.com/wp-content/uploads/2010/01/google-maps-jquery-plugin-multi-markers-example.jpg" id="mapImage">
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+
 
 <%= render 'create_item_modal' %>
 <%= render 'contact_seller_modal' %>
