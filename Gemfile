@@ -28,9 +28,11 @@ gem 'dropzonejs-rails'
 
 gem 'carrierwave'
 
-gem 'fog'
+gem 'fog', '1.23.0'
 
-gem "figaro"
+gem 'figaro'
+
+gem 'aws-sdk'
 
 gem 'pg'
 

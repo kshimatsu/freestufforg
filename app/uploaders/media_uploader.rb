@@ -16,6 +16,12 @@ class MediaUploader < CarrierWave::Uploader::Base
   #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   # end
 
+  def store_dir
+    # "freestufforg" is the bucket name on S3
+
+    "freestufforg/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
    def cache_dir
     "#{Rails.root}/tmp/uploads"
   end
