@@ -1,8 +1,10 @@
 <p>
   <%= @greeting %></br>
-  <%= @item.title %> is your giveaway. Are you sure?
+
+  You recently listed <%= @item.title %> on freestuff.org. Please confirm by accessing the link below.
+
 </p>
 
 <p>
-  <%= link_to "Accept", confirm_posting_item_url(@item) %>
+  <%= link_to "Confirm", confirm_posting_item_url(@item) %>
 </p>
