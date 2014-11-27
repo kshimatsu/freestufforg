@@ -8,7 +8,7 @@
       </div>
       <div class="modal-body">
         <div>
-          <form ng-submit="contactLister()">
+          <form ng-submit="contactLister()" ng-hide="contactConfirm">
             <p>Your email address</p>
             <input type="email" ng-model="message.email" />
             <p>Your telephone number</p>
@@ -22,6 +22,10 @@
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
             <input id="submitListing" type="submit" value="Submit" />
           </form>
+        </div>
+        <div ng-show="contactConfirm">
+          <h3>Thanks!</h3>
+          <p>The owner of this item has been contacted. This window will close in five seconds.</p>
         </div>
 
       </div>

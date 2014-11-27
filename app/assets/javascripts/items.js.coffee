@@ -2,21 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-
-  $('#resetModal').click (e) ->
-    e.preventDefault
-    $('#confirmation').hide()
-    $('#image_upload').hide()
-    $('#formSubmission').show()
-    $('#listing_form').closest('form').find("input[type=text], textarea").val("");
-
-  $('#submitListing').click (e) ->
-    e.preventDefault
-    $('#image_upload').show()
-    $('#formSubmission').hide()
-
-
 
 App = angular.module("freeItems", [])
 
@@ -83,6 +68,7 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
     $scope.contactItem = item.title
     $scope.contactLocation = item.location
     $scope.contactId = item.id
+    $scope.contactConfirm = false
 
   $scope.contactAddress = ""
   $scope.contactItem = ""
@@ -95,6 +81,7 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
     $http.post('/messages.json', message)
       .success (data) ->
         console.log "you managed to create a message"
+        $scope.contactConfirm = true
       .error (data) ->
         console.log "you didn't manage to create a message"
 
