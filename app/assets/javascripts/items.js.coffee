@@ -33,6 +33,12 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
 
   $scope.itemList = []
 
+  $scope.filterLocation = (location) ->
+    $scope.location = location
+
+  $scope.resetLocations = ->
+    $scope.location = null
+
   $scope.updateCurrentItem = (item) ->
     $scope.currentItem = item
 
