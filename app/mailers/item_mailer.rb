@@ -1,5 +1,7 @@
 class ItemMailer < ActionMailer::Base
-  default from: "info@freestuff.org"
+  default from: "info@freestuff.org",
+          host: "https://freestuff-jka.herokuapp.com/"
+
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
