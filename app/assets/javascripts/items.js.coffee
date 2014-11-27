@@ -2,25 +2,10 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-
-  $('#resetModal').click (e) ->
-    e.preventDefault
-    $('#confirmation').hide()
-    $('#image_upload').hide()
-    $('#formSubmission').show()
-    $('#listing_form').closest('form').find("input[type=text], textarea").val("");
-
-  $('#submitListing').click (e) ->
-    e.preventDefault
-    $('#image_upload').show()
-    $('#formSubmission').hide()
-
-
 
 App = angular.module("freeItems", [])
 
-App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
+App.controller("ListController", ["$scope", "$http", "$timeout", ($scope, $http, $timeout) ->
   # $scope.itemCount = 0
 
   $http.get('/items.json')
@@ -32,6 +17,9 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
   $scope.newItemId = 0
 
   $scope.itemList = []
+
+  $scope.fileUpload = false
+  $scope.formSubmission = false
 
   $scope.filterLocation = (location) ->
     $scope.location = location
@@ -57,7 +45,9 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
 
   $scope.locations = ['Wan Chai','Central','Causeway Bay','Tsim Sha Tsui','Stanley']
 
-
+  $scope.resetItemModal = ->
+    $scope.fileUpload = false
+    $scope.formSubmission = false
 
   $scope.save = ->
     console.log "you submitted some stuff bro"
@@ -68,6 +58,8 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
       .success (data) ->
         console.log "you managed to create a new item"
         $scope.newItemId = data.id
+        $scope.formSubmission = true
+        $scope.fileUpload = true
         # $scope.itemList.push(jsonObj)
         $scope.form = {}
         $http.get('/items/latest.json')
@@ -75,8 +67,6 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
             console.log data
           .error (data) ->
             console.log "whoops, that didn't work..."
-
-
       .error (data) ->
         console.log "you didn't manage to create an item"
 
@@ -85,11 +75,20 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
     $scope.contactItem = item.title
     $scope.contactLocation = item.location
     $scope.contactId = item.id
+    $scope.contactConfirm = false
 
   $scope.contactAddress = ""
   $scope.contactItem = ""
   $scope.contactLocation = ""
   $scope.contactId = ""
+
+  $scope.delayedClose = ->
+    angular.element('#contactClose').trigger('click')
+
+  $scope.delayedItemClose = ->
+    angular.element('#itemClose').trigger('click')
+
+  #why won't this work when it's inside contactLister?
 
   $scope.contactLister = ->
     message = $scope.message
@@ -97,6 +96,8 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
     $http.post('/messages.json', message)
       .success (data) ->
         console.log "you managed to create a message"
+        $scope.contactConfirm = true
+        $timeout($scope.delayedClose, 3000)
       .error (data) ->
         console.log "you didn't manage to create a message"
 

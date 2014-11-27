@@ -7,5 +7,9 @@
 
 <p>You've received this email because you listed a free item on <%= @item.created_at %>, <%= @item.title %>. Someone would like to claim it. Here's the message:
 <p>
-  <%= @message %>
+  <%= @message.message_description %>
+</p>
+
+<p>
+  Their phone number is <%= @message.tel %>
 </p>

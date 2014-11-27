@@ -13,8 +13,6 @@
                     <h2>{{ item.remaining_days }}</h2><br/>
 
                     <button class="btn btn-default" id="get-this-item-btn" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Contact the Lister</button>
-
-                  </div>
                 </div>
             </div>
           </div>
@@ -39,7 +37,7 @@
         <div class="row" id="descriptionContainer">
           <div class="col-sm-9"><h1>{{ currentItem.title }}</h1></div>
             <div class="col-sm-3">
-              <div class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</div>
+              <div class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(currentItem)">Get This Item</div>
           </div>
         </div>
 

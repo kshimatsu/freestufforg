@@ -2,13 +2,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <button type="button" class="close" data-dismiss="modal" id="contactClose"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h2 class="modal-title" id="contactSellerLabel">Message Lister</h2>
         <h3>{{ contactItem }} - {{ contactLocation }}</h3>
       </div>
       <div class="modal-body">
         <div>
-          <form ng-submit="contactLister()">
+          <form ng-submit="contactLister()" ng-hide="contactConfirm">
             <p>Your email address</p>
             <input type="email" ng-model="message.email" />
             <p>Your telephone number</p>
@@ -20,8 +20,12 @@
             <p>Weekly Newsletter</p>
             <input type="checkbox" value="weekly_newsletter" ng-model="message.weekly_newsletter" />
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-            <input id="submitListing" type="submit" value="Submit" />
+            <input type="submit" value="Submit" />
           </form>
+        </div>
+        <div ng-show="contactConfirm">
+          <h3>Thanks!</h3>
+          <p>The owner of this item has been contacted. This window will close automatically.</p>
         </div>
 
       </div>
