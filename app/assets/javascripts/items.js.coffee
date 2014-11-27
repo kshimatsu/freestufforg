@@ -5,7 +5,7 @@
 
 App = angular.module("freeItems", [])
 
-App.controller("ListController", ["$scope", "$http", ($scope, $http, $timeout) ->
+App.controller("ListController", ["$scope", "$http", "$timeout", ($scope, $http, $timeout) ->
   # $scope.itemCount = 0
 
   $http.get('/items.json')
@@ -17,6 +17,9 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http, $timeout) -
   $scope.newItemId = 0
 
   $scope.itemList = []
+
+  $scope.fileUpload = false
+  $scope.formSubmission = false
 
   $scope.filterLocation = (location) ->
     $scope.location = location
@@ -42,6 +45,10 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http, $timeout) -
 
   $scope.locations = ['Wan Chai','Central','Causeway Bay','Tsim Sha Tsui','Stanley']
 
+  $scope.resetItemModal = ->
+    $scope.fileUpload = false
+    $scope.formSubmission = false
+
   $scope.save = ->
     console.log "you submitted some stuff bro"
     console.log $scope.form
@@ -51,6 +58,8 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http, $timeout) -
       .success (data) ->
         console.log "you managed to create a new item"
         $scope.newItemId = data.id
+        $scope.formSubmission = true
+        $scope.fileUpload = true
         # $scope.itemList.push(jsonObj)
         $scope.form = {}
         $http.get('/items/latest.json')
@@ -73,6 +82,14 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http, $timeout) -
   $scope.contactLocation = ""
   $scope.contactId = ""
 
+  $scope.delayedClose = ->
+    angular.element('#contactClose').trigger('click')
+
+  $scope.delayedItemClose = ->
+    angular.element('#itemClose').trigger('click')
+
+  #why won't this work when it's inside contactLister?
+
   $scope.contactLister = ->
     message = $scope.message
     message.item_id = $scope.contactId
@@ -80,7 +97,7 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http, $timeout) -
       .success (data) ->
         console.log "you managed to create a message"
         $scope.contactConfirm = true
-        angular.element('#contactClose').trigger('click')
+        $timeout($scope.delayedClose, 3000)
       .error (data) ->
         console.log "you didn't manage to create a message"
 

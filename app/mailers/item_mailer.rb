@@ -11,7 +11,7 @@ class ItemMailer < ActionMailer::Base
   def contact_lister(item, message)
     @greeting = "Greetings!"
     @item = item
-    @message = message.message_description
+    @message = message
     mail(to: @item.lister_email, subject: "[Freestuff.org] Someone would like to claim your free item \"#{ @item.title }\"", from: message.email)
   end
 

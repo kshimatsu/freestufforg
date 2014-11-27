@@ -20,12 +20,12 @@
             <p>Weekly Newsletter</p>
             <input type="checkbox" value="weekly_newsletter" ng-model="message.weekly_newsletter" />
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-            <input id="submitListing" type="submit" value="Submit" />
+            <input type="submit" value="Submit" />
           </form>
         </div>
         <div ng-show="contactConfirm">
           <h3>Thanks!</h3>
-          <p>The owner of this item has been contacted. This window will close in five seconds.</p>
+          <p>The owner of this item has been contacted. This window will close automatically.</p>
         </div>
 
       </div>

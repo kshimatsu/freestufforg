@@ -115,3 +115,7 @@ h3 {
 #descriptionContainer {
   padding-top: 30px;
 }
+
+#confirmation {
+  display: none;
+}

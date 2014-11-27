@@ -25,7 +25,11 @@ $(function() {
     var imageUrl;
     imageUrl = responseText.file_name.url;
     console.log(imageUrl);
-    $('#close_modal').click();
+    $('#image_upload').hide();
+    $('#confirmation').show()
+    setTimeout("$('#itemClose').click()", 3000)
+    setTimeout("$('#image_upload').show()", 5000)
+    setTimeout("$('#confirmation').hide()", 5000)
     mediaDropzone.removeAllFiles()
   });
 });
