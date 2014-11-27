@@ -27,7 +27,8 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Select Location <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li ng-repeat="location in locations"><a href="#">{{location}}</a></li>
+              <li ng-click="resetLocations()"><a href="#">All</a></li>
+              <li ng-repeat="location in locations"><a href="#" ng-click="filterLocation(location)">{{location}}</a></li>
             </ul>
           </li>
           </ul>
