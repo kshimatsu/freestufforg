@@ -56,23 +56,16 @@ margin-bottom: 10px;
   text-align: center;
 }
 
-#remaining-time {
-  text-align: center;
-}
-
 #get-this-item-btn {
   text-align: center;
   margin: 10px 0
 }
 
-.remaining-time {
-  padding: none;
-}
 
-.thumbnail-description {
-  text-align: center;
-  margin-top: 10px;
-}
+// .thumbnail-description {
+//   text-align: center;
+//   margin-top: 10px;
+// }
 
 #title-and-button.h2 {
   padding: none;
@@ -81,3 +74,33 @@ margin-bottom: 10px;
 .no-margin {
   padding: 0px;
 }
+
+.thumbnail {
+  position: relative;
+  height: 250px;
+  padding: 0px;
+}
+
+.list-image, .thumbnail-description {
+  position: absolute;
+}
+
+
+// div.thumbnail-description {
+//   background: rgba(0,0,0,0.5);
+//   color: white;
+//   cursor: pointer;
+//   display: table;
+//   height: 200px;
+//   left: 0;
+//   position: absolute;
+//   top: 0;
+//   width: 200px;
+// }
+
+// div.thumbnail-description h2 {
+//   display: table-cell;
+//   text-align: center;
+//   vertical-align: middle;
+// }
+

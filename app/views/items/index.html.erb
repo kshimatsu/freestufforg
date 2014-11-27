@@ -6,14 +6,16 @@
         <div class="row">
           <div ng-repeat="item in itemList | filter:location">
               <div class="col-md-6">
-                <div class="thumbnail" ng-click="updateCurrentItem(item)">
+                <div class="thumbnail" ng-click="updateCurrentItem(item)" ng-mouseenter="visible=true" ng-mouseleave="visible=false">
                   <img class="list-image" ng-src="{{ item.media[0].file_name.url }}" />
-                  <div class="thumbnail-description">
+
+                  <div ng-show="visible" class="thumbnail-description">
                     <h2>{{ item.title }}</h2>
-                  </div>
-                  <div id="remaining-time">In {{ item.location }} with {{ item.remaining_days }}</div>
-                  <div id="get-this-item-btn">
-                    <button class="btn btn-default"  type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</button>
+
+                    <p>In {{ item.location }} with {{ item.remaining_days }}</p>
+                    <div id="get-this-item-btn">
+                      <button class="btn btn-default"  type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</button>
+                    </div>
                   </div>
                 </div>
               </div>
