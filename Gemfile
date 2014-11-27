@@ -28,6 +28,10 @@ gem 'dropzonejs-rails'
 
 gem 'carrierwave'
 
+gem 'fog'
+
+gem "figaro"
+
 gem 'pg'
 
 # Use ActiveModel has_secure_password
