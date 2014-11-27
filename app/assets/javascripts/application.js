@@ -30,7 +30,7 @@ $(function() {
   });
 });
 
-$('.selectpicker').selectpicker({
-    style: 'btn-info',
-    size: 4
-});
+// $('.selectpicker').selectpicker({
+//     style: 'btn-info',
+//     size: 4
+// });

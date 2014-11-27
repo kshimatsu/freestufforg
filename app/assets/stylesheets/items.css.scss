@@ -30,9 +30,22 @@ div.panel {
   width: 500px;
 }
 
+.get-this-item-btn {
+  padding: none;
+}
+
 h1, .h1, h2, .h2, h3, .h3 {
 margin-top: 0px;
 margin-bottom: 10px;
+}
+
+.hidden-div {
+  padding: none;
+}
+
+.inner-container-description {
+  padding-top: 30px;
+  padding-left: none;
 }
 
 .panel-default {
@@ -52,7 +65,15 @@ margin-bottom: 10px;
   margin: 10px 0
 }
 
+.remaining-time {
+  padding: none;
+}
+
 .thumbnail-description {
   text-align: center;
   margin-top: 10px;
+}
+
+#title-and-button.h2 {
+  padding: none;
 }

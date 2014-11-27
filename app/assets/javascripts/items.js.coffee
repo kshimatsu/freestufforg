@@ -98,7 +98,11 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
       .error (data) ->
         console.log "you didn't manage to create a message"
 
+  $scope.showItemDesc = false
+
   $scope.updateCurrentItem = (item) ->
+    console.log "updateCurrentItem"
+    $scope.showItemDesc = true
     $scope.currentItem = item
 
   $scope.loadItems()
