@@ -23,7 +23,7 @@
 }
 
 div.panel {
-  padding: 10px;
+  // padding: 10px;
 }
 
 .mapImage {
@@ -76,4 +76,8 @@ margin-bottom: 10px;
 
 #title-and-button.h2 {
   padding: none;
+}
+
+.no-margin {
+  padding: 0px;
 }
