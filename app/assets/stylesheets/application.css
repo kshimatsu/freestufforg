@@ -61,7 +61,22 @@ h1 {
 
 h2 {
   font-family: 'Lato';
+  font-style: italic;
   font-weight: 900;
+}
+
+h3 {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+}
+
+.light {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.5em;
+  line-height: 2.0em;
 }
 
 #projectname {
@@ -86,4 +101,8 @@ h2 {
 
 #sub-main-content-container {
   margin-left: none;
+}
+
+#descriptionContainer {
+  padding-top: 30px;
 }
