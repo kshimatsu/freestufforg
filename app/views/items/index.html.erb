@@ -1,5 +1,6 @@
 <div class="row" id="mainContentContainer">
   <div class="col-md-12" id="sub-main-content-container">
+
     <div class="row">
       <div class="col-md-6">
         <div class="row">
@@ -23,29 +24,38 @@
       </div>
     </div>
 
-      <!-- Second half of page -->
-      <div class="col-sm-6" id="itemDescriptionContainer">
-        <div class="col-sm-12">
-          <div class="row" id="inner-item-div">
-            <div class="col-sm-8">
-            <h2>{{ currentItem.title }}</h2></div>
-            <div class="col-sm-4"> <span class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</span></div>
-            <div class="row">
-              <div class="col-sm-12">
-                <p><h3>Located in {{ currentItem.location }} and expires in {{currentItem.remaining_days}}</h3></p>
-                <p>{{ currentItem.description }}</p>
-              </div>
-              <img src="http://www.bitrepository.com/wp-content/uploads/2010/01/google-maps-jquery-plugin-multi-markers-example.jpg" id="mapImage">
-            </div>
+    <!-- Second half of page -->
+    <div class="col-sm-6" id="itemDescriptionContainer">
+      <div class="inner-container-description" ng-hide="showItemDesc" id="hidden-div">
+        <h1>Looking for something?</h1>
+          <p>Feel free to click around and see what people are giving away in your area!</p>
+          <p>Filter by location at the top.</p>
+          <p>Scroll through the postings on the left.</p>
+          <p>Click on the item for additional information</p>
+          <p>Contact the lister through the message button</p>
+          <p>Wait for the lister to reply and arrange for pick-up</p>
+      </div>
+
+      <div class="row" id="inner-item-div" ng-show="showItemDesc">
+        <div class="col-sm-8 no-margin">
+        <h2>{{ currentItem.title }}</h2></div>
+        <div class="col-sm-4"> <span class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Get This Item</span></div>
+        <div class="row">
+          <div class="col-sm-10 no-margin">
+            <p><h5>Located in {{ currentItem.location }} with {{currentItem.remaining_days}}</h3></p>
+            <p>{{ currentItem.description }}</p>
           </div>
+          <img src="http://www.bitrepository.com/wp-content/uploads/2010/01/google-maps-jquery-plugin-multi-markers-example.jpg" id="mapImage">
         </div>
       </div>
+    </div>
+
+  </div>
 
 
 <%= render 'create_item_modal' %>
 <%= render 'contact_seller_modal' %>
 
 
-  </div>
 </div>
 
