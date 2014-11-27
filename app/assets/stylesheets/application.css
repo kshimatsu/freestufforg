@@ -15,4 +15,57 @@
  *= require dropzone/dropzone
  */
 
+#itemDescriptionContainer {
+  position:fixed;
+  top: 100px;
+  right:0;
+  /*margin-right: 30px;*/
+  overflow-y:scroll;
+  overflow-x:hidden;
+}
 
+#locationDropDown {
+  margin: 5px 20px 5px 20px;
+}
+
+#mainContentContainer {
+  margin-top: 100px;
+}
+
+#slogan {
+  margin: 20% 0 20% 0;
+}
+
+#resetModal {
+  float: right;
+  margin-top: 9px;
+}
+
+body {
+  font-family: 'Lato';
+  margin-top: 50px;
+}
+
+
+h1 {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 900;
+}
+
+h2 {
+  font-family: 'Lato';
+  font-weight: 900;
+}
+
+#projectname {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 900;
+}
+
+.panel {
+  color: #000000;
+  background-color: #FFFFFF;
+  border-color: white;
+}
