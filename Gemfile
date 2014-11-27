@@ -66,5 +66,7 @@ group :development, :test do
   gem 'pry-rails'
 
   gem 'letter_opener'
+
+  gem 'meta_request'
 end
 
