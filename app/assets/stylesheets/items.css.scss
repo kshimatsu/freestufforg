@@ -10,12 +10,15 @@
   display: none;
 }
 
+#inner-item-div {
+  margin: 20px;
+}
+
 .expiry-date {
   float: right;
 }
 
 .list-image {
-  margin: 5px 0px 5px 0px;
   height: 200px;
 }
 
@@ -42,4 +45,14 @@ margin-bottom: 10px;
 
 #remaining-time {
   text-align: center;
+}
+
+#get-this-item-btn {
+  text-align: center;
+  margin: 10px 0
+}
+
+.thumbnail-description {
+  text-align: center;
+  margin-top: 10px;
 }

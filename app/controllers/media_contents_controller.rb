@@ -1,5 +1,6 @@
 class MediaContentsController < ApplicationController
   def create
+    # binding.pry
     @media = Medium.new(file_name: params[:file])
     @media.item_id = params[:item_id]
     @item = Item.find(params[:item_id])
