@@ -21,8 +21,9 @@ ActiveRecord::Schema.define(version: 20141124053125) do
     t.string   "lister_email"
     t.string   "lister_tel"
     t.boolean  "sms_notify"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "confirm_posting"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "media", force: true do |t|

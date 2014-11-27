@@ -3,35 +3,38 @@
 <head>
   <title>Freestufforg</title>
   <%= stylesheet_link_tag '//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css' %>
+  <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=Lato:100,400,100italic,400italic,900italic' %>
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= csrf_meta_tags %>
   </head>
 
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <body ng-app="freeItems" ng-controller="ListController">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/">Free Items for Free</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" id="projectname">freestuff.org</a>
         </div>
-        <span id="slogan">Pass on your goods!</span>
-          <select class="selectpicker" id="locationDropDown" ng-model="location">
-            <option value=""></option>
-            <option value="Wan Chai">Wan Chai</option>
-            <option value="Central">Central</option>
-            <option value="Causeway Bay">Causeway Bay</option>
-            <option value="Stanley">Stanley</option>
-            <option value="TST">Tsim Sha Tsui</option>
-            <option value="Mong Kok">Mong Kok</option>
-          </select>
-        <span>
-        <button id="resetModal" type="submit" class="btn btn-default" data-toggle="modal" data-target="#myModal">List a Free Item!</button>
-        </span>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#" data-toggle="modal" data-target="#myModal">List an Item</a></li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Select Location <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li ng-repeat="location in locations"><a href="#">{{location}}</a></li>
+            </ul>
+          </li>
+          </ul>
       </div>
     </nav>
+    <div class="container">
 
-  <body ng-app="freeItems">
-
-    <div ng-controller="ListController" class="container">
-      <p id="notice"><%= notice %></p>
       <%= yield %>
 
     </div>

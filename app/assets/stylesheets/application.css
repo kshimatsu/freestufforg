@@ -41,4 +41,31 @@
   margin-top: 9px;
 }
 
+body {
+  font-family: 'Lato';
+  margin-top: 50px;
+}
 
+
+h1 {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 900;
+}
+
+h2 {
+  font-family: 'Lato';
+  font-weight: 900;
+}
+
+#projectname {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 900;
+}
+
+.panel {
+  color: #000000;
+  background-color: #FFFFFF;
+  border-color: white;
+}
