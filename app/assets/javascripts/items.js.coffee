@@ -5,7 +5,7 @@
 
 App = angular.module("freeItems", [])
 
-App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
+App.controller("ListController", ["$scope", "$http", ($scope, $http, $timeout) ->
   # $scope.itemCount = 0
 
   $http.get('/items.json')
@@ -58,8 +58,6 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
             console.log data
           .error (data) ->
             console.log "whoops, that didn't work..."
-
-
       .error (data) ->
         console.log "you didn't manage to create an item"
 
@@ -82,6 +80,7 @@ App.controller("ListController", ["$scope", "$http", ($scope, $http) ->
       .success (data) ->
         console.log "you managed to create a message"
         $scope.contactConfirm = true
+        angular.element('#contactClose').trigger('click')
       .error (data) ->
         console.log "you didn't manage to create a message"
 
