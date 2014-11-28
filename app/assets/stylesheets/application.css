@@ -96,7 +96,7 @@ h3 {
 
 .navbar {
   background-color: #96E4EB;
-  border-color: #96E4EB;
+  border-color: white;
   color: #1E1E1E;
 }
 
@@ -126,6 +126,9 @@ label {
   font-size: 1.5em;
 }
 
+#list-item-btn {
+  background-color: pink;
+}
 
 #welcome {
   background-color: rgba(10,20,25,0.9);

@@ -14,9 +14,9 @@
     <div id="welcome" ng-hide="welcome_hide">
       <div class="welcome-message">
         <h1>Welcome to Free Stuff</h1>
-        <h2>Let someone else do the heavy lifting!</h2>
-        <p>Free Stuff makes it quick and easy for you to post unwanted items and arrange for others to take it away for you.</p>
-        <button class="btn btn-success" ng-click="welcome_hide = true">Get Started</button>
+        <h2>Free stuff. Either give or take.</h2>
+        <p>Live to give. Share to care. Your choice!</p>
+        <button class="btn btn-info" ng-click="welcome_hide = true">Get Started</button>
       </div>
     </div>
 
@@ -33,7 +33,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#" ng-click="resetItemModal()" data-toggle="modal" data-target="#myModal">Give a Free Item</a></li>
+            <li id="list-item-btn"><a href="#" ng-click="resetItemModal()" data-toggle="modal" data-target="#myModal">Give a Free Item</a></li>
 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Select Location <span class="caret"></span></a>
