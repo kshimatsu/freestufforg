@@ -18,6 +18,6 @@ class ItemMailer < ActionMailer::Base
   def confirm_posting(item)
     @greeting = "Thanks for posting free stuff!"
     @item = item
-    mail(to: @item.lister_email, subject: "[Freestuff.org] Confirmation for posting your free item \"#{ @item.title }\"", from: "testing@freestuff")
+    mail(to: @item.lister_email, subject: "[Freestuff.org] Confirmation for posting your free item \"#{ @item.title }\"", from: "confirm@freestuff")
   end
 end
