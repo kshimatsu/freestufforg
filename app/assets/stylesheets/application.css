@@ -125,28 +125,3 @@ label {
   font-weight: 400;
   font-size: 1.5em;
 }
-
-#welcome {
-  background-color: rgba(10,20,25,0.9);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 10;
-  text-align: center;
-  position: fixed;
-  overflow: hidden;
-}
-
-#welcome button {
-  margin-top: 70px;
-  font-size: 4rem;
-  padding
-}
-
-.welcome-message {
-  padding-top: 100px;
-  color: white;
-}
-.welcome-message h2 {
-  font-size: em;
-}
