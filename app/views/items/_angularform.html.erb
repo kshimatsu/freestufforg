@@ -1,32 +1,63 @@
-<p>Please provide some information about your free item.</p>
 
-<form ng-submit="save()" id="listing_form">
+<form ng-submit="save()" id="listing_form" role="form">
+  <div class="form-group">
+    <label>Name of your free item</label>
+    <p class="help-block">Please provide a short title of your item.</p>
+    <input class="form-control" placeholder="e.g. Old record player..." type="text" ng-model="form.title" />
+  </div>
 
-  <label>Title</label>
-  <input type="text" ng-model="form.title" /></br></br>
-
+  <div class="form-group">
   <label>Description</label>
-  <input type="textarea" ng-model="form.description" /></br></br>
+  <p class="help-block">Please write a short description of your item.</p>
+  <input placeholder="This item has gracefully aged..." class="form-control" type="textarea" ng-model="form.description" />
+  </div>
 
-  <div>
+  <div <div class="form-group">
     <label>Location</label>
-    <select ng-model="form.location" name="locationChoice" ng-options="location for location in locations">
+    <p class="help-block">Please choose the location of your item.</p>
+    <select class="form-control" ng-model="form.location" name="locationChoice" ng-options="location for location in locations">
       <option value="">-- choose location --</option>
-    </select><br/>
-  </div></br>
+    </select>
+  </div>
 
+  <div class="form-group">
   <label>Expiry Date</label>
-  <input type="date" ng-model="form.expiry_date" value = {{value | date: "yyyy-MM-dd"}}/></br></br>
+  <p class="help-block">The date by which you need to be rid of this item.</p>
+  <input min="<%= Time.now.strftime("%Y-%m-%d") %>" class="form-control" type="date" ng-model="form.expiry_date" value = {{value | date: "yyyy-MM-dd"}}/>
+  </div>
 
-  <label>Email</label>
-  <input type="email" ng-model="form.lister_email" /></br></br>
+  <div class="form-group">
+  <label>Your email address</label>
+  <p class="help-block">This will be used to contact you when someone wants your item.</p>
+  <input placeholder="email@domain.com" class="form-control" type="email" ng-model="form.lister_email" />
+  </div>
 
-  <label>Telephone</label>
-  <input type="tel" ng-model="form.lister_tel" /></br></br>
+  <div class="form-group">
+  <input class="btn btn-info " id="submitListing" type="submit" value="Submit" />
+  </div>
 
-  <p>Notify by SMS?</p>
-  <input type="checkbox" value="sms_notify" ng-model="form.sms_notify" />
-
-  <input id="submitListing" type="submit" value="Submit" />
 
 </form>
+<!--
+<form role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+ -->

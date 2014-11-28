@@ -27,9 +27,9 @@ $(function() {
     console.log(imageUrl);
     $('#image_upload').hide();
     $('#confirmation').show()
-    setTimeout("$('#itemClose').click()", 3000)
-    setTimeout("$('#image_upload').show()", 5000)
-    setTimeout("$('#confirmation').hide()", 5000)
+    setTimeout("$('#itemClose').click()", 10000)
+    setTimeout("$('#image_upload').show()", 11000)
+    setTimeout("$('#confirmation').hide()", 11000)
     mediaDropzone.removeAllFiles()
   });
 });

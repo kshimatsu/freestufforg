@@ -8,19 +8,28 @@
       </div>
       <div class="modal-body">
         <div>
-          <form ng-submit="contactLister()" ng-hide="contactConfirm">
-            <p>Your email address</p>
-            <input type="email" ng-model="message.email" />
-            <p>Your telephone number</p>
-            <input type="tel" ng-model="message.tel" />
-            <p>Your message</p>
-            <input type="textarea" ng-model="message.message_description">
-            <p>Notify by SMS?</p>
-            <input type="checkbox" value="sms_notify" ng-model="message.sms_notify" />
-            <p>Weekly Newsletter</p>
-            <input type="checkbox" value="weekly_newsletter" ng-model="message.weekly_newsletter" />
+          <form ng-submit="contactLister()" ng-hide="contactConfirm" role="form">
+
+            <div class="form-group">
+              <label>Your email address</label>
+              <p class="help-block">Your email address will be sent to the owner of the item.</p>
+              <input class="form-control" type="email" placeholder="name@domain.com" ng-model="message.email" />
+            </div>
+
+            <div class="form-group">
+              <label>Your telephone number</label>
+              <p class="help-block">The owner will receive your phone number.</p>
+              <input type="tel" placeholder="2239-1292" class="form-control" ng-model="message.tel">
+             </div>
+
+             <div class="form-group">
+              <label>Your message</label>
+              <p class="help-block">Write a message to the owner!</p>
+              <input type="textarea" class="form-control" ng-model="message.message_description">
+             </div>
+
             <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-            <input type="submit" value="Submit" />
+            <input class="btn btn-info" type="submit" value="Submit" />
           </form>
         </div>
         <div ng-show="contactConfirm">
