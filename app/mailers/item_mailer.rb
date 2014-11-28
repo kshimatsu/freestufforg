@@ -1,5 +1,5 @@
 class ItemMailer < ActionMailer::Base
-  default from: "info@freestuff.org",
+  default from: "confirm@freestuff.org",
           host: "https://freestuff-jka.herokuapp.com/"
 
 
