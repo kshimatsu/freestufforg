@@ -4,76 +4,80 @@
     <div class="row">
       <div class="col-md-6">
         <div class="row">
-            <div ng-repeat="item in itemList | filter:location" class="col-md-6">
-              <div class="thumbnail" ng-click="updateCurrentItem(item)" ng-mouseenter="visible=true" ng-mouseleave="visible=false">
-                <img class="list-image" ng-src="{{ item.media[0].file_name.url }}" />
+          <div ng-repeat="item in itemList | filter:location" class="col-md-6">
+            <div class="thumbnail" ng-click="updateCurrentItem(item)" ng-mouseenter="visible=true" ng-mouseleave="visible=false">
+              <img class="list-image" ng-src="{{ item.media[0].file_name.url }}" />
 
-                <div ng-show="visible">
-                  <div  class="thumbnail-description">
-                    <h2>{{ item.remaining_days }}</h2><br/>
+              <div ng-show="visible">
+                <div  class="thumbnail-description">
+                  <h2>{{ item.remaining_days }}</h2><br/>
 
-                    <button class="btn btn-default" id="get-this-item-btn" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Contact the Lister</button>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Second half of page -->
-    <div class="col-sm-6" id="itemDescriptionContainer">
-      <div class="light inner-container-description" ng-hide="showItemDesc" id="hidden-div">
-        <h1>Looking for something?</h1>
-          <p>Feel free to click around and see what people are giving away in your area!</p>
-          <p>Filter by location at the top.</p>
-          <p>Scroll through the postings on the left.</p>
-          <p>Click on the item for additional information</p>
-          <p>Contact the lister through the message button</p>
-          <p>Wait for the lister to reply and arrange for pick-up</p>
-      </div>
-
-      <div ng-show="showItemDesc">
-
-        <div class="row" id="descriptionContainer">
-          <div class="col-sm-9"><h1>{{ currentItem.title }}</h1></div>
-            <div class="col-sm-3">
-              <div class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(currentItem)">Get This Item</div>
-          </div>
-        </div>
-
-
-        <div class="row">
-          <div class="col-sm-12">
-            <h3>Located in {{ currentItem.location }} with {{currentItem.remaining_days}}</h3>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12">
-            {{ currentItem.description }}
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-sm-12">
-            <br><br>
-            <div class="row">
-              <div ng-repeat="medium in currentItem.media">
-                <div class="col-sm-4">
-                  <img class="description-image" id="multi-images" ng-src="{{ medium.file_name.url }}" />
+                  <button class="btn btn-default" id="get-this-item-btn" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(item)">Contact the Lister</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Second half of page -->
+      <div class="col-sm-6" id="itemDescriptionContainer">
+        <div class="col-sm-10 light inner-container-description" ng-hide="showItemDesc" id="hidden-div">
+          <ol>Looking for something?
+            <li>Feel free to click around and see what people are giving away in your area!</li>
+            <li>Filter by location at the top.</li>
+            <li>Scroll through the postings on the left.</li>
+            <li>Click on the item for additional information</li>
+            <li>Contact the lister through the message button</li>
+            <li>Wait for the lister to reply and arrange for pick-up</li>
+        </div>
+
+        <div ng-show="showItemDesc">
+
+          <div class="row" id="descriptionContainer">
+            <div class="col-sm-9" id="title-in-desc"><h1>{{ currentItem.title }}</h1></div>
+            <div class="col-sm-3">
+              <div class="btn btn-default" type="button" data-toggle="modal" data-target="#contactSeller" ng-click="getContact(currentItem)">Get This Item</div>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col-sm-12 sub-location">
+              <h3>Located in {{ currentItem.location }} with {{currentItem.remaining_days}}</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 sub-description">
+              {{ currentItem.description }}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 sub-photo">
+              <br><br>
+              <div class="row">
+                <div ng-repeat="medium in currentItem.media">
+                  <div class="col-sm-4">
+                    <img class="description-image" id="multi-images" ng-src="{{ medium.file_name.url }}" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <%= render 'create_item_modal' %>
+      <%= render 'contact_seller_modal' %>
 
     </div>
+
   </div>
-
-
-<%= render 'create_item_modal' %>
-<%= render 'contact_seller_modal' %>
-
 </div>
 
 

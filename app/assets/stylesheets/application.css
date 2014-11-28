@@ -126,6 +126,7 @@ label {
   font-size: 1.5em;
 }
 
+
 #welcome {
   background-color: rgba(10,20,25,0.9);
   width: 100%;
@@ -138,7 +139,30 @@ label {
 }
 
 #welcome button {
-  margin-top: 70px;
+  margin-top: 50px;
   font-size: 4rem;
   padding
+}
+
+.welcome-message {
+  color: white;
+  margin-top: 100px;
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.welcome-message h1 {
+  font-size: 60px;
+}
+
+.welcome-message h2 {
+  color: #96E4EB
+}
+.welcome-message p {
+  font-size: 20px;
+  margin-top: 20px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 100;
 }

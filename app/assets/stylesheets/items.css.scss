@@ -7,7 +7,19 @@
 }
 
 #descriptionContainer {
-  margin: auto;
+  margin: 0px;
+}
+
+.sub-location {
+  margin-top: 5px;
+}
+
+.sub-description {
+  margin-top: 20px;
+}
+
+.sub-photo {
+  margin-top: 10px;
 }
 
 .description-image {
@@ -67,6 +79,10 @@ margin-bottom: 10px;
 
 #title-and-button.h2 {
   padding: none;
+}
+
+div#title-in-desc {
+  padding-left: 0px;
 }
 
 .thumbnail {
